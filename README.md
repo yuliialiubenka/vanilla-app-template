@@ -1,113 +1,89 @@
 # Vanilla App Template
 
-Цей проект було створено за допомогою Vite. Для знайомства та налаштування
-додаткових можливостей [звернись до документації](https://vitejs.dev/).
+A minimal Vite starter for vanilla JavaScript projects. Use it as a clean base for landing pages, small websites, and
+multi-page applications.
 
-## Створення репозиторію за шаблоном
+## Create a project from this template
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення
-репозиторію свого проекту. Для цього натисни на кнопку `«Use this template»` і
-обери опцію `«Create a new repository»`, як показано на зображенні.
+1. Open the repository on GitHub and click **Use this template**.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+    ![The Use this template button](./assets/template-step-1.png)
 
-На наступному етапі відкриється сторінка створення нового репозиторію. Заповни
-поле його імені, переконайся, що репозиторій публічний, після чого натисни
-кнопку `«Create repository from template»`.
+2. Enter a name for your new repository and click **Create repository from template**.
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+    ![Creating a repository from the template](./assets/template-step-2.png)
 
-Після того, як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як показано
-на зображенні.
+## Getting started
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+Make sure that the LTS version of [Node.js](https://nodejs.org/) is installed, then run:
 
-Проскроливши сторінку до самого кінця, в секції `«Workflow permissions»` обери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це необхідно
-для автоматизації процесу деплою проекту.
-
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
-
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів та папок
-репозиторію-шаблону. Далі працюй з ним, як з будь-яким іншим особистим
-репозиторієм, клонуй його собі на комп'ютер, пиши код, роби коміти та відправляй
-їх на GitHub.
-
-## Підготовка до роботи
-
-1. Переконайся, що на комп'ютері встановлено LTS-версію Node.js.
-   [Скачай та встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проекту в терміналі командою `npm install`.
-3. Запусти режим розробки, виконавши в терміналі команду `npm run dev`.
-4. Перейдіть у браузері за адресою
-   [http://localhost:5173](http://localhost:5173). Ця сторінка буде автоматично
-   перезавантажуватись після збереження змін у файли проекту.
-
-## Файли і папки
-
-- Файли розмітки компонентів сторінки повинні лежати в папці `src/partials` та
-  імпортуватись до файлу `index.html`. Наприклад, файл з розміткою хедера
-  `header.html` створюємо у папці `partials` та імпортуємо в `index.html`.
-- Файли стилів повинні лежати в папці `src/css` та імпортуватись до HTML-файлів
-  сторінок. Наприклад, для `index.html` файл стилів називається `index.css`.
-- Зображення додавай до папки `src/img`. Збирач оптимізує їх, але тільки при
-  деплої продакшн версії проекту. Все це відбувається у хмарі, щоб не
-  навантажувати твій комп'ютер, тому що на слабких компʼютерах це може зайняти
-  багато часу.
-
-## Деплой
-
-Продакшн версія проекту буде автоматично збиратися та деплоїтись на GitHub
-Pages, у гілку `gh-pages`, щоразу, коли оновлюється гілка `main`. Наприклад,
-після прямого пуша або прийнятого пул-реквесту. Для цього необхідно у файлі
-`package.json` змінити значення прапора `--base=/<REPO>/`, для команди `build`,
-замінивши `<REPO>` на назву свого репозиторію, та відправити зміни на GitHub.
-
-```json
-"build": "vite build --base=/<REPO>/",
+```bash
+npm install
+npm run dev
 ```
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) та
-виставити роздачу продакшн версії файлів з папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+Open the local URL shown by Vite, usually [`http://localhost:5173`](http://localhost:5173). The development server
+reloads the page whenever you save a source file.
+
+## Project structure
+
+```text
+src/
+├── index.html       # Main HTML entry point
+├── js/
+│   └── main.js      # JavaScript entry point
+├── css/
+│   ├── styles.css   # Main stylesheet
+│   ├── reset.css    # Small browser reset
+│   ├── base.css     # Global page styles
+│   └── starter.css  # Optional starter screen styles
+├── partials/
+│   └── starter.html # Optional starter screen markup
+└── img/
+    └── vite-logo.png # Image assets
+```
+
+The starter screen is kept in `partials/starter.html` and `css/starter.css`, so you can remove both files and the
+related `<load>` line from `index.html` when you are ready to start building your own page. Add other pages, components,
+styles, and resources under `src` as your project grows. Vite automatically includes HTML entry points located directly
+in `src` during the production build.
+
+## Available commands
+
+| Command           | Description                           |
+| ----------------- | ------------------------------------- |
+| `npm run dev`     | Start the development server.         |
+| `npm run build`   | Create a production build in `dist`.  |
+| `npm run preview` | Preview the production build locally. |
+
+The [vanilla-app-template.code-workspace](./vanilla-app-template.code-workspace) file includes VS Code tasks for all
+three commands. Open it in VS Code and run them through **Terminal > Run Task**.
+
+## Deploy to GitHub Pages
+
+The repository includes a GitHub Actions workflow for building and deploying the project to the `gh-pages` branch. The
+workflow runs after changes are pushed to `main`.
+
+![Deployment workflow](./assets/how-it-works.png)
+
+Before the first deployment, update the `--base` value in `package.json` with your repository name:
+
+```json
+"build": "vite build --base=/<REPOSITORY_NAME>/"
+```
+
+In the repository settings, open **Settings > Pages** and select the `gh-pages` branch as the deployment source.
 
 ![GitHub Pages settings](./assets/repo-settings.png)
 
-### Статус деплою
+GitHub Actions may require write permissions for the workflow. Open **Settings > Actions > General**, enable read and
+write permissions, and save the change.
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+![GitHub Actions permissions](./assets/gh-actions-perm-1.png)
 
-- **Жовтий колір** - виконується збірка та деплой проекту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, збірки чи деплою сталася помилка.
+![GitHub Actions workflow permissions](./assets/gh-actions-perm-2.png)
 
-Більш детальну інформацію про статус можна переглянути натиснувши на іконку, і в
-вікні, що випадає, перейти за посиланням `Details`.
+The deployment status is displayed next to the commit in GitHub. Open **Details** to inspect the workflow log if a
+deployment fails.
 
 ![Deployment status](./assets/deploy-status.png)
-
-### Жива сторінка
-
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися за
-адресою, вказаною на вкладці `Settings` > `Pages` в налаштуваннях репозиторію.
-Наприклад, ось посилання на живу версію для цього репозиторію
-
-[https://goitacademy.github.io/vanilla-app-template/](https://goitacademy.github.io/vanilla-app-template/).
-
-Якщо відкриється порожня сторінка, переконайся, що у вкладці `Console` немає
-помилок пов'язаних з неправильними шляхами до CSS та JS файлів проекту
-(**404**). Швидше за все у тебе неправильне значення прапора `--base` для
-команди `build` у файлі `package.json`.
-
-## Як це працює
-
-![How it works](./assets/how-it-works.png)
-
-1. Після кожного пуша у гілку `main` GitHub-репозиторію, запускається
-   спеціальний скрипт (GitHub Action) із файлу `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується та
-   проходить лінтинг та збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн версія файлів проекту
-   відправляється у гілку `gh-pages`. В іншому випадку, у лозі виконання скрипта
-   буде вказано в чому проблема.
